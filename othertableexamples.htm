@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Other Table Examples</title>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+table#t01 {
+    width:80%;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #cfc;
+}
+table#t01 tr:nth-child(odd) {
+    background-color:#fff;
+}
+table#t01 th {
+    background-color: black;
+    color: white;
+}
+
+table#tab01 {
+    border-collapse: collapse;
+}
+#tab01 tr:nth-child(odd){
+    background-color: #def;    
+}
+#tab01 th {
+    background-color: #6ae;
+    color: white;
+    padding: 8px;
+}
+#tab01 td {
+    padding: 8px;
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Other Table Examples</h1>
+<br>
+
+<h3>Simple table with borders</h3>
+
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr>
+</table>
+
+<p>Notice that the data cell borders are not merged (I think because the table does not have the attribute <mark style="background-color:#ddd">border-collapse: collapse;</mark><br>
+Also note that the headers are centered because that's the default.
+</p>
+<br>
+
+<h3>Table with border spacing - <mark style="background-color:#ddd">border-spacing: XXXpx;</mark></h3>
+
+<table style="width:100%; border-spacing:10px;">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr>
+</table>
+<br>
+
+<h3>Table with:</h3>
+<ul style="font-size:18px; font-weight:bold;">
+  <li>Cell that spans two columns - <mark style="background-color:#ddd">&lt;th colspan="2"></mark>
+  <li>Borders collapsed - <mark style="background-color:#ddd">&lt;table style="border-collapse:collapse"></mark>
+</ul>
+
+
+<table style="width:100%; border-collapse:collapse; text-align:left;">
+  <tr>
+    <th>Name</th>
+    <th colspan="2">Telephone</th>
+  </tr>
+  <tr>
+    <td>Bill Gates</td>
+    <td>55577854</td>
+    <td>55577855</td>
+  </tr>
+</table>
+<br>
+
+
+<h3>Table with</h3>
+
+<ul style="font-size:18px; font-weight:bold;">
+  <li>Cell that spans multiple rows - <mark style="background-color:#ddd">&lt;th rowspan="2"></mark></li>
+  <li>Nifty Caption - <mark style="background-color:#ddd">&lt;caption>Nifty Caption&lt;/caption></mark></li>
+</ul>
+
+
+<table style="width:100%">
+  <caption>Nifty Caption</caption>
+  <tr>
+    <th>Name:</th>
+    <td>Bill Gates</td>
+  </tr>
+  <tr>
+    <th rowspan="2">Telephone:</th>
+    <td>55577854</td>
+  </tr>
+  <tr>
+    <td>55577855</td>
+  </tr>
+</table>
+<br>
+
+<h3>Table with special formatting using an "id" in the table element and formating in the style section</h3>
+
+<table id="t01">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr>
+</table>
+<br>
+<br>
+
+<h3>CSS Table Properties</h3>
+
+<table id="tab01">
+  <tr>
+    <th style="width:20%">Property</th>
+    <th style="max-width:300px">Description</th>
+  </tr>
+  <tr>
+    <td>border</td>
+    <td>Sets all the border properties in one declaration. If you want the border only around the table, and not the different cells of the table, then only attribute it to the table element.</td>
+  </tr>
+  <tr>
+    <td>border-collapse</td>
+    <td>Specifies whether or not table borders should be collapsed. Example:<br />
+<code>table {
+    border-collapse: collapse;
+}<br />
+
+table, td, th {
+    border: 1px solid black;
+}</code></td>
+  </tr>
+  <tr>
+    <td>border-spacing</td>
+    <td>Specifies the distance between the borders of adjacent cells</td>
+  </tr>
+  <tr>
+    <td>caption-side</td>
+    <td>Specifies the placement of a table caption</td>
+  </tr>
+  <tr>
+    <td>width & height</td>
+    <td>These properties define the width and height respectively of tables, th, td, etc.</td>
+  </tr>
+  <tr>
+    <td>Horizontal alignment</td>
+    <td>text-align property sets the horizontal alignment. The th default is center, the td default is left.</td>
+  </tr>
+  <tr> 
+    <td>Vertical alignment</td>
+    <td>The vertical-align property sets the vertical alignment (like top, bottom, or middle) of the content in &lt;th&gt; or &lt;td&gt;.</td>
+  </tr>
+  <tr>
+    <td>Padding</td>
+    <td>Use padding in th and td elements.</td>
+  </tr>
+  <tr>
+    <td>Horizontal dividers (borders)</td>
+    <td>Example:<br />
+<code>th, td {
+    border-bottom: 1px solid #ddd;
+}</code></td>
+  </tr>
+  <tr>
+    <td>Hoverable Table</td>
+    <td>Use the :hover selector on &lt;tr&gt; to highlight table rows on mouse over like this:<br />
+<code>tr:hover {background-color: #f5f5f5;}</code></td>
+  </tr>
+  <tr>
+    <td>Striped tables</td>
+    <td>For striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows like this:<br />
+<code>tr:nth-child(even) {background-color: #f2f2f2;}</code></td>
+  </tr>
+  <tr>
+    <td>Responsive table</td>
+    <td>A responsive table will display a horizontal scroll bar if the screen is too small to display the full content.<br />
+Add a container element (like &lt;div&gt;) with overflow-x:auto around the &lt;table&gt; element to make it responsive:
+<code>&lt;div style="overflow-x:auto;"&gt;</code></td>
+  </tr>
+  <tr>
+    <td>empty-cells</td>
+    <td>Specifies whether or not to display borders and background on empty cells in a table</td>
+  </tr>
+  <tr>
+    <td>table-layout</td>
+    <td>Sets the layout algorithm to be used for a table</td>
+  </tr>
+</table>
+
+
+
+
+
+
+</body>
+</html>
