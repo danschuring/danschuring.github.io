@@ -15,6 +15,10 @@
 <title>Lighting Cost Comparison - CSS Grid, JavaScript</title>
 
 <script>
+/* see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#examples
+for Number.prototype.toLocaleString() on Mozilla to display numbers with thousands and decimal separators. 
+*/
+
 function hoursFunc() {
   var x = document.getElementById("hours").value;
   document.getElementById("output01").innerHTML = x + " hrs.";
@@ -188,7 +192,7 @@ input {
 
 
 
-@media (min-width: 700px){
+@media (min-width: 800px){
   .container{
     width: 80%;
     margin-left: auto;
