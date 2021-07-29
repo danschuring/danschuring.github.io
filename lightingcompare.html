@@ -158,21 +158,25 @@ nav ul {
   width: 100%;
   min-width: 100px;
   background-color: #cdf;
-  border: solid 1px #333;
 }
 
 nav ul li {
+  display: flex;
   float: left;
   width: 33.3%;
-  border: solid 1px #333; 
+  align-items: stretch;
 }
 
 nav ul li a {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 0.5em;
   text-align: center;
   text-decoration: none;
   color: black;
+  border: solid 1px #333;
 }
 
 /* Change the link color on hover */
@@ -253,7 +257,7 @@ main {
     background-color: #cdf;
   }
   nav ul li {
-    width: 99%;
+    width: 100%;
   }
   main {
     float: right;
