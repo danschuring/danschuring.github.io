@@ -1,3 +1,13 @@
+function hamToggle(x) {
+  x.classList.toggle("change");
+  var x = document.getElementById("navbar");
+  if (x.className === "navbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbar";
+  }
+}
+
 // Open the Modal
 function openModal() {
   document.getElementById("myModal").style.display = "block";
