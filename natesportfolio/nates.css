@@ -121,9 +121,6 @@ h2 {
 }
 
 #proj-pics {
-/*  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(15, auto);
@@ -140,7 +137,7 @@ h2 {
 
 .project-tile img {
   margin-bottom: 1.6em;
-  max-height: 125px;
+  max-height: 160px;
   opacity: 0.75;
 }
 
@@ -310,6 +307,9 @@ img.hover-shadow {
   }
   #proj-pics {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .project-tile img {
+    max-height: 130px;
   }
   .container {
     background-color: black;
