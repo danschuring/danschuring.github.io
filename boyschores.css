@@ -27,7 +27,7 @@ input {
   background: #cfc3b0;
   padding: 4px;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
   grid-template-rows: repeat(auto);
   grid-gap: 3px;
   border-radius: 0.7em;
@@ -56,9 +56,9 @@ input {
   margin: -0.5em 0 0 0; */
 }
 
-@media only screen and (max-width: 800px){
+@media (min-width: 600px){
   .container {
-    grid-template-columns: auto;
+    grid-template-columns: auto auto auto;
     grid-template-rows: repeat(auto);
   }
 }
