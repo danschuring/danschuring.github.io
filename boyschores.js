@@ -50,7 +50,7 @@ document.getElementById("body").onload = function() {defaultToday()};
 // Calls daysFromBase
 function defaultToday() {
   document.querySelector("#choreDate").valueAsDate = today;
-  document.getElementById("day-of-week").innerHTML = dayArray[today.getDay()];
+  document.getElementById("day-of-week").innerHTML = dayArray[today.getDay() + 1];
   return daysFromBase();
 }
 
