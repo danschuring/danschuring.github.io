@@ -42,103 +42,133 @@ const dayArray = ["Sunday",
                  ];
 const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in a day
 const baseDate = new Date("2021-09-06"); // sets baseDate to 06 Sep 2021
+let path = window.location.pathname;
+let page = path.split("/").pop();
 
-document.getElementById("body").onload = function() {defaultToday()};
+window.addEventListener('DOMContentLoaded', function() {defaultToday()});
 
-// Sets default value of calendar (#choreDate) to date page loaded
+// Sets default value of date input to today or this week's Mon for print chart
 // Puts current day of week in front of date input
 // Calls daysFromBase
 function defaultToday() {
-  document.querySelector("#choreDate").valueAsDate = today;
-  document.getElementById("day-of-week").innerHTML = dayArray[today.getDay() + 1];
-  return daysFromBase();
+  if (page === "boyschores.html") {
+    document.querySelector("#choredate").valueAsDate = today;
+    document.getElementById("day-of-week").innerHTML = dayArray[today.getDay() + 1];
+    return daysFromBase();
+    } else if (page === "boyschores-for-print.html") {
+      let daysFromMon = Math.floor((today - baseDate) / oneDay) % 7;
+      let thisMon = new Date(today.getTime() - (daysFromMon * oneDay));
+      document.querySelector("#choredate").valueAsDate = thisMon;
+      return daysFromBase();
+  } 
 }
 
 // Calulates days between baseDate and calendar date
 function daysFromBase() {
-  let calendarDate = new Date(document.getElementById("choreDate").value);
+  let calendarDate = new Date(document.getElementById("choredate").value);
   let daysFromBase = (Math.floor((calendarDate - baseDate) / oneDay));
-  console.log(daysFromBase);
   natesChores(daysFromBase);
-  iansChores(daysFromBase)
-  nicksChores(daysFromBase)
+  iansChores(daysFromBase);
+  nicksChores(daysFromBase);
   return daysFromBase;
 }
 
-// Calculates day of week of changed input date to push in front of date input
-// 
-document.getElementById("choreDate").addEventListener("change", changed);
+// Calculates day of week of changed input date to push in front of date input for single-day chart
+document.getElementById("choredate").addEventListener("change", changed);
 function changed() {
-  let newCalDate = new Date(document.getElementById("choreDate").value);
-//  let newYear = newCalDate.getFullYear();
-//  let newMonth = newCalDate.getMonth();
-//  let newDateOfMonth = newCalDate.getDate();
-//  let pickedDate = new Date(newYear, newMonth, newDateOfMonth);
-  document.getElementById("day-of-week").innerHTML = 
-    dayArray[newCalDate.getDay() + 1]; // or would pickedDate work better?
-  console.log(newCalDate.getDay());
-  return daysFromBase();
-}
-
-function natesChores(daysFromBase) {
-  let satChores = "";
-  if (daysFromBase % 7 === 5) {
-    satChores = satNN[daysFromBase % 2];
-  } else {
-      satChores = "";
+  if (page === "boyschores.html") {
+    let newCalDate = new Date(document.getElementById("choredate").value);
+    document.getElementById("day-of-week").innerHTML = 
+      dayArray[newCalDate.getDay() + 1]; // or would pickedDate work better?
+    return daysFromBase();
+  } else if (page === "boyschores-for-print.html") {
+    return daysFromBase();
   }
-  document.getElementById("nateschores").innerHTML = 
-    everyDayChores + 
-    "<li>" + switchChores[daysFromBase % 3] + "</li>" +
-    satChores;
+}
+ 
+function natesChores(daysFromBase) {
+  let satChores;
+  if (page === "boyschores.html") {
+    if (daysFromBase % 7 === 5) {
+      satChores = satNN[daysFromBase % 2];
+    } else {
+      satChores = "";
+    }
+    document.getElementById("nateschores").innerHTML = 
+      everyDayChores + 
+      "<li>" + switchChores[daysFromBase % 3] + "</li>" +
+      satChores;
+  } else if (page === "boyschores-for-print.html") {
+    for (let i = 0; i < 7; i++) {
+      if (i === 5) {
+        satChores = satNN[(daysFromBase + 1) % 2];
+      } else {
+        satChores = "";
+      }
+      document.getElementById("nate" + i).innerHTML = 
+        everyDayChores + 
+        "<li>" + switchChores[(daysFromBase + i) % 3] + "</li>" +
+        satChores;
+    }
+  } else {
+    window.alert("Oops! Something went wrong. The page file name does not seem to match what you expected in code.");
+  }
 }
 
 function iansChores(daysFromBase) {
-  let satChores = "";
-  if (daysFromBase % 7 === 5) {
-    satChores = satIan;
-  } else {
+  let satChores;
+  if (page === "boyschores.html") {
+    if (daysFromBase % 7 === 5) {
+      satChores = satIan;
+    } else {
       satChores = "";
-  }
+    }
   document.getElementById("ianschores").innerHTML = 
     everyDayChores + 
     "<li>" + switchChores[(daysFromBase + 1) % 3] + "</li>" +
     satChores;
+  } else if (page === "boyschores-for-print.html") {
+    for (let i = 0; i < 7; i++) {
+      if (i === 5) {
+        satChores = satIan;
+      } else {
+        satChores = "";
+      }
+      document.getElementById("ian" + i).innerHTML = 
+        everyDayChores + 
+        "<li>" + switchChores[(daysFromBase + 1 + i) % 3] + "</li>" +
+        satChores;
+    }
+  } else {
+    window.alert("Oops! Something went wrong. The page file name does not seem to match what you expected in code.");
+  }
 }
 
 function nicksChores(daysFromBase) {
-  let satChores = "";
-  if (daysFromBase % 7 === 5) {
-    satChores = satNN[(daysFromBase + 1) % 2];
-  } else {
+  let satChores;
+  if (page === "boyschores.html") {
+    if (daysFromBase % 7 === 5) {
+      satChores = satNN[(daysFromBase + 1) % 2];
+    } else {
       satChores = "";
-  }
+    }
   document.getElementById("nickschores").innerHTML = 
     everyDayChores + 
     "<li>" + switchChores[(daysFromBase + 2) % 3] + "</li>" +
     satChores;
+  } else if (page === "boyschores-for-print.html") {
+    for (let i = 0; i < 7; i++) {
+      if (i === 5) {
+        satChores = satNN[daysFromBase % 2];
+      } else {
+        satChores = "";
+      }
+      document.getElementById("nick" + i).innerHTML = 
+        everyDayChores + 
+        "<li>" + switchChores[(daysFromBase + 2 + i) % 3] + "</li>" +
+        satChores;
+    }
+  } else {
+    window.alert("Oops! Something went wrong. The page file name does not seem to match what you expected in code.");
+  }
 }
-
-
-/*
-X  Pull date info from date input regardless of change or not
-
-Use this to calc diff of days between base date and date in input
-
-Use diffDays % 3 to determine chore for person on given day.
-
-To determine Saturday chore switch for Nick or Nate, 
-if diffDays % 7 === 5, then saturdayChoreArray[Math.floor(diffDays) % 2], else return null;
-
-To determine Saturday chore switch for the other, 
-if diffDays % 7 === 5, then saturdayChoreArray[(Math.floor(diffDays) + 1) % 2], else return null;
-
-*/
-
-// Push test I to #nateschores
-// document.getElementById("nateschores").innerHTML = everyDayChores;
-
-
-//Date value returned by input type="date" is format yyyy-mm-dd . Could use .split() with argument "-" to retrieve array containing [yyyy, mm, dd]
-
-
