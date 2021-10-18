@@ -2,7 +2,7 @@
 const everyDayChores = 
       "<li>Dishwasher</li>" + 
       "<li>Clean Room & Make Bed</li>" + 
-      "<li>Mom's Choice / Dad's Choice</li>";
+      "<li>Mom’s Choice / Dad’s Choice</li>";
 const switchChores = 
       ["Set / Help Cook",
        "Clear / Counters / Sweep",
@@ -13,7 +13,7 @@ const satIan =
        "<li>Vacuum Basement, Stairs / Trash";
 const satNN = 
       ["<li>Main Bathroom</li> <li>Vacuum Main Floor / Trash</li>",
-       "<li>Boys' Bathroom</li> <li> Vacuum Stairs & Hall / Trash</li"
+       "<li>Boys’ Bathroom</li> <li> Vacuum Stairs & Hall / Trash</li"
       ];
 
 // Seems convoluted, but today = new Date() yields timezone issues
