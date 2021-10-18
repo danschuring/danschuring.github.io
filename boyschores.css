@@ -7,6 +7,10 @@ body {
   font-family: Arial,Helvetica,sans-serif;
 }
 
+#printpage {
+  font-size: 85%;
+}
+
 h1 {
   display: inline;
   font-size: 1.1em;
@@ -82,6 +86,9 @@ table, th, td {
 }
 .daycolumn {
   text-align: center;
+}
+#tab01 * {
+  -webkit-print-color-adjust: exact;
 }
 
 @media (min-width: 800px){

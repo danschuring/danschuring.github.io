@@ -2,7 +2,7 @@
 const everyDayChores = 
       "<li>Dishwasher</li>" + 
       "<li>Clean Room & Make Bed</li>" + 
-      "<li>Mom's Choice / Dad's Choice</li>";
+      "<li>Mom’s Choice / Dad’s Choice</li>";
 const switchChores = 
       ["Set / Help Cook",
        "Clear / Counters / Sweep",
@@ -13,11 +13,10 @@ const satIan =
        "<li>Vacuum Basement, Stairs / Trash";
 const satNN = 
       ["<li>Main Bathroom</li> <li>Vacuum Main Floor / Trash</li>",
-       "<li>Boys' Bathroom</li> <li> Vacuum Stairs & Hall / Trash</li"
+       "<li>Boys’ Bathroom</li> <li> Vacuum Stairs & Hall / Trash</li"
       ];
 
-// Seems convoluted, but 
-// today = new Date() yields timezone issues
+// Seems convoluted, but today = new Date() yields timezone issues
   let a = new Date();
   let aYear = a.getFullYear();
   let aMonth = a.getMonth() + 1;
@@ -49,6 +48,7 @@ window.addEventListener('DOMContentLoaded', function() {defaultToday()});
 
 // Sets default value of date input to today or this week's Mon for print chart
 // Puts current day of week in front of date input
+// Puts date in appropriate row for print chart
 // Calls daysFromBase
 function defaultToday() {
   if (page === "boyschores.html") {
@@ -59,6 +59,11 @@ function defaultToday() {
       let daysFromMon = Math.floor((today - baseDate) / oneDay) % 7;
       let thisMon = new Date(today.getTime() - (daysFromMon * oneDay));
       document.querySelector("#choredate").valueAsDate = thisMon;
+      let x = document.getElementById("tab01");
+      let daySpan = x.getElementsByTagName("span");
+      for (let i = 0; i < daySpan.length; i++) {
+        daySpan[i].innerHTML = aMonth + "/" + (aDateOfMonth - daysFromMon + i);
+      }
       return daysFromBase();
   } 
 }
@@ -76,12 +81,24 @@ function daysFromBase() {
 // Calculates day of week of changed input date to push in front of date input for single-day chart
 document.getElementById("choredate").addEventListener("change", changed);
 function changed() {
+  let newCalDate = new Date(document.getElementById("choredate").value);
   if (page === "boyschores.html") {
-    let newCalDate = new Date(document.getElementById("choredate").value);
     document.getElementById("day-of-week").innerHTML = 
-      dayArray[newCalDate.getDay() + 1]; // or would pickedDate work better?
+      dayArray[newCalDate.getDay() + 1];
     return daysFromBase();
   } else if (page === "boyschores-for-print.html") {
+      let b = document.getElementById("choredate").value;
+      let bYear = b.substr(0, 4);
+      let bMonth = parseInt(b.substr(5, 2), 10) - 1;
+      let bDate = parseInt(b.substr(8, 2), 10);
+      const options = { month: 'numeric', day: 'numeric' }; // month: 'numeric', day: 'numeric'
+      let x = document.getElementById("tab01");
+      let daySpan = x.getElementsByTagName("span");
+      for (let i = 0; i < daySpan.length; i++) {
+        let bClean = new Date(bYear, bMonth, bDate + i);
+        let dateToPrint = bClean.toLocaleDateString(undefined, options);
+        daySpan[i].innerHTML = dateToPrint;
+      }
     return daysFromBase();
   }
 }
