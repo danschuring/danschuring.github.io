@@ -87,20 +87,18 @@ function changed() {
       dayArray[newCalDate.getDay() + 1];
     return daysFromBase();
   } else if (page === "boyschores-for-print.html") {
-      let daysFromNewMon = Math.floor((newCalDate - baseDate) / oneDay) % 7;
-      let newMon = new Date(newCalDate.getTime() - (daysFromNewMon * oneDay));
-//    let x = document.getElementById("tab01");
-//    let daySpan = x.getElementsByTagName("span");
-//    for (let i = 0; i < daySpan.length; i++) {
-//      daySpan[i].innerHTML = aMonth + "/" + (aDateOfMonth - daysFromMon + i);
-//    }
-
-/* ******************* Working in the middle of this as of 10/13 *********************** */
-
-    console.log((newCalDate - baseDate) / oneDay); // displays diff between new calendar date and base date (42 on 10/13)
-console.log(today);
-console.log(newCalDate.getDate()); // newCalDate.getDate() displayed to console 10/13 at 6:12 PM as "17" but I expected "18"
-
+      let b = document.getElementById("choredate").value;
+      let bYear = b.substr(0, 4);
+      let bMonth = parseInt(b.substr(5, 2), 10) - 1;
+      let bDate = parseInt(b.substr(8, 2), 10);
+      const options = { month: 'numeric', day: 'numeric' }; // month: 'numeric', day: 'numeric'
+      let x = document.getElementById("tab01");
+      let daySpan = x.getElementsByTagName("span");
+      for (let i = 0; i < daySpan.length; i++) {
+        let bClean = new Date(bYear, bMonth, bDate + i);
+        let dateToPrint = bClean.toLocaleDateString(undefined, options);
+        daySpan[i].innerHTML = dateToPrint;
+      }
     return daysFromBase();
   }
 }
