@@ -84,6 +84,9 @@ table, th, td {
 .thboy {
   width: 32%;
 }
+#thday {
+  width: 5%;
+}
 .daycolumn {
   text-align: center;
 }
@@ -93,7 +96,7 @@ table, th, td {
 
 @media (min-width: 800px){
   .container {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     grid-template-rows: repeat(auto);
   }
 }
