@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', function() {defaultToday()});
 // Puts date in appropriate row for print chart
 // Calls daysFromBase
 function defaultToday() {
-  if (page === "boyschores.html") {
+  if (page === "boyschores2.html") {
     document.querySelector("#choredate").valueAsDate = today;
     document.getElementById("day-of-week").innerHTML = dayArray[today.getDay() + 1];
     return daysFromBase();
@@ -82,7 +82,7 @@ function daysFromBase() {
 document.getElementById("choredate").addEventListener("change", changed);
 function changed() {
   let newCalDate = new Date(document.getElementById("choredate").value);
-  if (page === "boyschores.html") {
+  if (page === "boyschores2.html") {
     document.getElementById("day-of-week").innerHTML = 
       dayArray[newCalDate.getDay() + 1];
     return daysFromBase();
@@ -105,7 +105,7 @@ function changed() {
  
 function natesChores(daysFromBase) {
   let satChores;
-  if (page === "boyschores.html") {
+  if (page === "boyschores2.html") {
     if (daysFromBase % 7 === 5) {
       satChores = satNN[daysFromBase % 2];
     } else {
@@ -134,7 +134,7 @@ function natesChores(daysFromBase) {
 
 function iansChores(daysFromBase) {
   let satChores;
-  if (page === "boyschores.html") {
+  if (page === "boyschores2.html") {
     if (daysFromBase % 7 === 5) {
       satChores = satIan;
     } else {
@@ -163,7 +163,7 @@ function iansChores(daysFromBase) {
 
 function nicksChores(daysFromBase) {
   let satChores;
-  if (page === "boyschores.html") {
+  if (page === "boyschores2.html") {
     if (daysFromBase % 7 === 5) {
       satChores = satNN[(daysFromBase + 1) % 2];
     } else {
