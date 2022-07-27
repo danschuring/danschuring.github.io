@@ -4,7 +4,7 @@
 
 <head>
 
-  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>Boys’ Chores</title>
 
@@ -25,10 +25,9 @@
 <body id="body">
 
   <h1>Chores for: 
-    <span id="day-of-week">
-    </span> 
+    <span id="day-of-week">Tuesday</span> 
   </h1>
-  <input type="date" name="choredate" id="choredate" min="2021-09-06"></input><br /><br />
+  <input type="date" name="choredate" id="choredate" min="2021-09-06"><br><br>
 
 
   <div class="row container">
@@ -36,20 +35,12 @@
     <div class="kid" id="nate">
       <h2>Nate
       </h2><br>
-      <ul id="nateschores">
-      </ul>
+      <ul id="nateschores"><li>Dishwasher</li><li>Clean Room &amp; Make Bed</li><li>Mom’s Choice / Dad’s Choice</li><li>Rinse &amp; Load / Wash Pots &amp; Pans</li></ul>
     </div> <!-- /.col-sm-4 -->
 
     <div class="kid" id="ian">
       <h2>Ian</h2><br>
-      <ul id="ianschores">
-      </ul>
-    </div> <!-- /.kid -->
-
-    <div class="kid" id="nick">
-      <h2>Nick</h2><br>
-      <ul id="nickschores">
-      </ul>
+      <ul id="ianschores"><li>Dishwasher</li><li>Clean Room &amp; Make Bed</li><li>Mom’s Choice / Dad’s Choice</li><li>Set / Help Cook</li></ul>
     </div> <!-- /.kid -->
 
   </div> <!-- /.row -->
@@ -59,8 +50,27 @@
   <br>
   <br>
 
-  <script src="boyschores.js"></script
+<h2>Date info pulled using get methods from new Date()</h2>
 
-</body>
+<p>Year: <span id="yearoutput"></span><br>
+Month: <span id="monthoutput"></span><br>
+Day: <span id="dayoutput"></span><br>
+Hour: <span id="houroutput"></span><br>
+<input type="date" name="testdate1" id="testdate1">
+</p><br>
 
-</html>
+<h2>Date info pulled using UTC get methods from new Date()</h2>
+<p>UTC Year: <span id="yearUTCoutput"></span><br>
+UTC Month: <span id="monthUTCoutput"></span><br>
+UTC Day: <span id="dayUTCoutput"></span><br>
+UTC Hour: <span id="hourUTCoutput"></span><br>
+<input type="date" name="testdate2" id="testdate2">
+</p><br>
+
+<h2>Date based on just "new Date()"</h2>
+<input type="date" name="testdate3" id="testdate3">
+
+  <script src="boyschores.js"></script>
+
+
+</body></html>

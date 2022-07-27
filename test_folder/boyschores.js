@@ -4,8 +4,7 @@ const everyDayChores =
       "<li>Clean Room & Make Bed</li>" + 
       "<li>Mom’s Choice / Dad’s Choice</li>";
 const switchChores = 
-      ["Set / Help Cook",
-       "Clear / Counters / Sweep",
+      ["Clear / Counters / Sweep",
        "Rinse & Load / Wash Pots & Pans"
       ];
 const satIan = 
@@ -113,7 +112,7 @@ function natesChores(daysFromBase) {
     }
     document.getElementById("nateschores").innerHTML = 
       everyDayChores + 
-      "<li>" + switchChores[daysFromBase % 3] + "</li>" +
+      "<li>" + switchChores[daysFromBase % 2] + "</li>" +
       satChores;
   } else if (page === "boyschores-for-print.html") {
     for (let i = 0; i < 7; i++) {
@@ -124,7 +123,7 @@ function natesChores(daysFromBase) {
       }
       document.getElementById("nate" + i).innerHTML = 
         everyDayChores + 
-        "<li>" + switchChores[(daysFromBase + i) % 3] + "</li>" +
+        "<li>" + switchChores[(daysFromBase + i) % 2] + "</li>" +
         satChores;
     }
   } else {
@@ -142,7 +141,7 @@ function iansChores(daysFromBase) {
     }
   document.getElementById("ianschores").innerHTML = 
     everyDayChores + 
-    "<li>" + switchChores[(daysFromBase + 1) % 3] + "</li>" +
+    "<li>" + switchChores[(daysFromBase + 1) % 2] + "</li>" +
     satChores;
   } else if (page === "boyschores-for-print.html") {
     for (let i = 0; i < 7; i++) {
@@ -153,7 +152,7 @@ function iansChores(daysFromBase) {
       }
       document.getElementById("ian" + i).innerHTML = 
         everyDayChores + 
-        "<li>" + switchChores[(daysFromBase + 1 + i) % 3] + "</li>" +
+        "<li>" + switchChores[(daysFromBase + 1 + i) % 2] + "</li>" +
         satChores;
     }
   } else {
@@ -189,3 +188,31 @@ function nicksChores(daysFromBase) {
     window.alert("Oops! Something went wrong. The page file name does not seem to match what you expected in code.");
   }
 }
+
+window.addEventListener('DOMContentLoaded', function() {testDateOutput()});
+
+function testDateOutput () {
+  let yrOut = a.getFullYear(); // a is just set to new Date() early in the script.
+  let yrUTCOut = a.getUTCFullYear();
+  let moOut = a.getMonth() + 1;
+  let moUTCOut = a.getUTCMonth() + 1;
+  let dayOut = a.getDate();
+  let dayUTCOut = a.getUTCDate();
+  let hrOut = a.getHours();
+  let hrUTCOut = a.getUTCHours();
+
+  document.getElementById("yearoutput").innerHTML = yrOut;
+  document.getElementById("monthoutput").innerHTML = moOut;
+  document.getElementById("dayoutput").innerHTML = dayOut;
+  document.getElementById("houroutput").innerHTML = hrOut;
+  document.querySelector("#testdate1").valueAsDate = new Date(yrOut + "-" + moOut + "-" + dayOut);
+
+  document.getElementById("yearUTCoutput").innerHTML = yrUTCOut;
+  document.getElementById("monthUTCoutput").innerHTML = moUTCOut;
+  document.getElementById("dayUTCoutput").innerHTML = dayUTCOut;
+  document.getElementById("hourUTCoutput").innerHTML = hrUTCOut;
+  document.querySelector("#testdate2").valueAsDate = new Date(yrUTCOut + "-" + moUTCOut + "-" + dayUTCOut);
+
+  document.querySelector("#testdate3").valueAsDate = new Date();
+
+} // end function testDateOutput()
