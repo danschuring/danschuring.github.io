@@ -51,11 +51,11 @@ window.addEventListener('DOMContentLoaded', function() {defaultToday()});
 // Puts date in appropriate row for print chart
 // Calls daysFromBase
 function defaultToday() {
-  if (page === "boyschores.html") {
+  if (page === "boyschores-v1.html") {
     document.querySelector("#choredate").valueAsDate = today;
     document.getElementById("day-of-week").innerHTML = dayArray[today.getDay() + 1];
     return daysFromBase();
-    } else if (page === "boyschores-for-print.html") {
+    } else if (page === "boyschores-for-print-v1.html") {
       let daysFromMon = Math.floor((today - baseDate) / oneDay) % 7;
       let thisMon = new Date(today.getTime() - (daysFromMon * oneDay));
       document.querySelector("#choredate").valueAsDate = thisMon;
@@ -82,11 +82,11 @@ function daysFromBase() {
 document.getElementById("choredate").addEventListener("change", changed);
 function changed() {
   let newCalDate = new Date(document.getElementById("choredate").value);
-  if (page === "boyschores.html") {
+  if (page === "boyschores-v1.html") {
     document.getElementById("day-of-week").innerHTML = 
       dayArray[newCalDate.getDay() + 1];
     return daysFromBase();
-  } else if (page === "boyschores-for-print.html") {
+  } else if (page === "boyschores-for-print-v1.html") {
       let b = document.getElementById("choredate").value;
       let bYear = b.substr(0, 4);
       let bMonth = parseInt(b.substr(5, 2), 10) - 1;
@@ -105,7 +105,7 @@ function changed() {
  
 function natesChores(daysFromBase) {
   let satChores;
-  if (page === "boyschores.html") {
+  if (page === "boyschores-v1.html") {
     if (daysFromBase % 7 === 5) {
       satChores = satNN[daysFromBase % 2];
     } else {
@@ -115,7 +115,7 @@ function natesChores(daysFromBase) {
       everyDayChores + 
       "<li>" + switchChores[daysFromBase % 3] + "</li>" +
       satChores;
-  } else if (page === "boyschores-for-print.html") {
+  } else if (page === "boyschores-for-print-v1.html") {
     for (let i = 0; i < 7; i++) {
       if (i === 5) {
         satChores = satNN[(daysFromBase + 1) % 2];
@@ -134,7 +134,7 @@ function natesChores(daysFromBase) {
 
 function iansChores(daysFromBase) {
   let satChores;
-  if (page === "boyschores.html") {
+  if (page === "boyschores-v1.html") {
     if (daysFromBase % 7 === 5) {
       satChores = satIan;
     } else {
@@ -144,7 +144,7 @@ function iansChores(daysFromBase) {
     everyDayChores + 
     "<li>" + switchChores[(daysFromBase + 1) % 3] + "</li>" +
     satChores;
-  } else if (page === "boyschores-for-print.html") {
+  } else if (page === "boyschores-for-print-v1.html") {
     for (let i = 0; i < 7; i++) {
       if (i === 5) {
         satChores = satIan;
@@ -163,7 +163,7 @@ function iansChores(daysFromBase) {
 
 function nicksChores(daysFromBase) {
   let satChores;
-  if (page === "boyschores.html") {
+  if (page === "boyschores-v1.html") {
     if (daysFromBase % 7 === 5) {
       satChores = satNN[(daysFromBase + 1) % 2];
     } else {
@@ -173,7 +173,7 @@ function nicksChores(daysFromBase) {
     everyDayChores + 
     "<li>" + switchChores[(daysFromBase + 2) % 3] + "</li>" +
     satChores;
-  } else if (page === "boyschores-for-print.html") {
+  } else if (page === "boyschores-for-print-v1.html") {
     for (let i = 0; i < 7; i++) {
       if (i === 5) {
         satChores = satNN[daysFromBase % 2];
