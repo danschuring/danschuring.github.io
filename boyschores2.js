@@ -154,32 +154,3 @@ function iansChores(daysFromBase) {
     window.alert("Oops! Something went wrong. The page file name does not seem to match what you expected in code.");
   }
 }
-
-
-window.addEventListener('DOMContentLoaded', function() {testDateOutput()});
-
-function testDateOutput () {
-  let yrOut = a.getFullYear();
-  let yrUTCOut = a.getUTCFullYear();
-  let moOut = a.getMonth();
-  let moUTCOut = a.getUTCMonth();
-  let dayOut = a.getDate();
-  let dayUTCOut = a.getUTCDate();
-  let hrOut = a.getHours();
-  let hrUTCOut = a.getUTCHours();
-
-  document.getElementById("yearoutput").innerHTML = yrOut;
-  document.getElementById("monthoutput").innerHTML = moOut;
-  document.getElementById("dayoutput").innerHTML = dayOut;
-  document.getElementById("houroutput").innerHTML = hrOut;
-  document.querySelector("#testdate1").valueAsDate = new Date(yrOut, moOut, dayOut);
-
-  document.getElementById("yearUTCoutput").innerHTML = yrUTCOut;
-  document.getElementById("monthUTCoutput").innerHTML = moUTCOut;
-  document.getElementById("dayUTCoutput").innerHTML = dayUTCOut;
-  document.getElementById("hourUTCoutput").innerHTML = hrUTCOut;
-  document.querySelector("#testdate2").valueAsDate = new Date(yrUTCOut, moUTCOut, dayUTCOut);
-
-  document.querySelector("#testdate3").valueAsDate = new Date();
-
-} // end function testDateOutput()
