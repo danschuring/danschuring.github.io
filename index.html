@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <![endif]-->
+
+<title>Dan’s Personal Web Design Portfolio</title>
+
+<style>
+
+body {
+  font-family:Verdana,Arial,sans-serif;
+}
+  
+nav {
+  background-color: #301815;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+nav a {
+  color: white;
+  padding: 1.5em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #eecdc4;
+  color: black;
+}
+
+#welcome-section {
+  background-color: #202228;
+  color: white;
+  text-shadow: 0 0 6px #000;
+  height: 100vh;
+  background-image: url('https://danschuring.github.io/freecodecamp-projects/deadhorse.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.copyright {
+  position: absolute;
+  bottom: -3em;
+  right: 2em;
+  font-size: 18px;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+  color: white;
+}
+
+#projects {
+  background-color: #202520;
+  padding: 30px;
+}
+
+#proj-pics {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project-tile {
+  padding: 1em;
+  background-color: white;
+  max-width: 290px;
+  margin: 30px;
+  text-align: center;
+}
+
+#contact {
+  background-color: #201a1a;
+  padding: 30px;
+}
+
+#contact a {
+  display: block;
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+
+@media only screen and (max-width:600px) {
+  #proj-pics {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <a href="#welcome-section">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+
+  <section id="welcome-section">
+    <h1>
+      I’m Dan.<br />
+      Welcome to my Web Design Portfolio Page!
+    </h1>
+
+    <div class="copyright" title="I took this photo at Dead Horse Point State Park in Utah.">&copy;</div>
+    
+  </section>
+
+  <section id="projects">
+    <h2>
+      Project Examples
+    </h2>
+
+    <div id="proj-pics">
+
+    <a class="project-tile" href="https://codepen.io/danschuring/full/GRoeqpa" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/trib2cc-mq.jpg" alt="Image of tribute to Claudette Colvin"><br />
+      Tribute page using media query
+    </a>
+
+        <a class="project-tile" href="https://codepen.io/danschuring/full/MENEag" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/trib2ray-w3css.jpg" alt="Image of tribute to Raymond Fraz"><br />
+      Tribute page using W3.CSS
+    </a>
+
+    <a class="project-tile" href="https://codepen.io/danschuring/full/yLOBvoz" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/techdocumentation2.jpg" alt="Image of technical documentation page"><br />
+      Technical documentation article
+    </a>
+
+    <a class="project-tile" href="https://codepen.io/danschuring/full/eYvKNEJ" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/js-rand-select.jpg" alt="Image of Vanilla JS - pick random numbers page"><br />
+      JavaScript - pick random numbers
+    </a>
+
+    <a class="project-tile" href="https://codepen.io/danschuring/full/QWvZGrL" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/lightcostcompare.jpg" alt="Image of Vanilla JS - Light bulb cost comparison calculator"><br />
+      JavaScript - cost compare bulbs
+    </a>
+
+    <a class="project-tile" href="https://nates-ceramics.onrender.com/" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/natesceramics.jpg" alt="Image of my son's ceramics portfolio"><br />
+      Portfolio with project slideshow
+    </a>
+
+    <a class="project-tile" href="https://danschuring.github.io/test_folder/boyschores-for-print.html" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/chorechart.jpg" alt="Image JavaScript dynamic chore chart"><br />
+      JavaScript - Dynamic Chore Chart
+    </a>
+
+
+
+<!--
+    <a class="project-tile" href="https://a-bom.github.io" target="_blank">
+      <img src="https://danschuring.github.io/freecodecamp-projects/abomimg.jpg" alt="Image of my pet project, the Annotated Book of Mormon"><br />
+      The Annotated Book of Mormon, a critical analysis
+    </a>
+-->
+
+    </div>
+
+  </section>
+  
+  <section id="contact">
+    <h2>
+      Contact Me
+    </h2>
+    <a href="mailto:someone@example.com">danschuringmeu@gmail.com</a>
+    <a href="https://www.linkedin.com/in/dan-schuring-6b5969/" target="_blank">LinkedIn Profile</a>
+    <a href="https://github.com/danschuring/" target="_blank">Dan’s GitHub</a>
+    <a id="profile-link" href="https://www.freecodecamp.org/danschuring" target="_blank">FreeCodeCamp Profile</a>
+  </section>
+
+
+</body>
+</html>
