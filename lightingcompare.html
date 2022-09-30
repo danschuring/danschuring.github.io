@@ -130,12 +130,17 @@ function calcs() {
 
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family:Verdana,Arial,sans-serif;
 }
 
 input {
-  font-size: 1.1em;
+  font-size: 1.0em;
+  max-width: 5em;
 }
 
 h2 {
@@ -204,7 +209,7 @@ main {
 }
 
 .container div {
-  padding: .5em 1em;
+  padding: .5em;
   text-align: right;
   border-radius: 0.7em;
 }
@@ -219,6 +224,7 @@ main {
 
 .description {
   background: white;
+  padding-left: 0;
 }
 
 .input {
@@ -233,14 +239,14 @@ main {
   background-color: white;
 }
 
-.submit-reset {
+#submit-reset {
   grid-area: 7/1/8/4;
   background: #eef;
 }
 
 
 @media (min-width: 800px){
-  .container{
+  .container {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
@@ -297,6 +303,7 @@ main {
   <p>Use the table below to see what your savings could be. Change the values in yellow cells to match your situation, or leave the defaults to see a typical cost comparison between a 60-watt incandescent bulb and an LED replacement with similar light output that only uses 8 watts.
   </p>
 </div>
+<br /><br />
 
 <form id="myForm" class="container" name="inputForm" action="" method="post" onsubmit="calcs(this.form); return false" onreset="location.reload()">
   
@@ -432,7 +439,7 @@ main {
   </div>  
   
   <div class="description">
-    <span>Percent of total costs of other bulb</span>
+    <span>Percent of total costs of 1st bulb</span>
   </div>
   <div class="output tot1">
     <span id="output17">&hellip;</span>
@@ -441,7 +448,7 @@ main {
     <span id="output18">&hellip;</span>
   </div>
   
-    <div class="submit-reset" style="text-align:left;">
+    <div id="submit-reset" style="text-align:left;">
         <input type="submit">
         <input type="reset" onClick="resetStuff()">
       <span style="padding-left:0.6em;">(Results will be displayed below.)</span>
