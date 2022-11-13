@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0.3em 0.3em;
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+#printpage {
+  font-size: 85%;
+}
+
+h1 {
+  display: inline;
+  font-size: 1.1em;
+}
+
+h2 {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+input {
+  font-size: 1.1em;
+}
+
+.container {
+  width: 98%;
+  margin: auto;
+  background: #cfc3b0;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(auto);
+  grid-gap: 3px;
+  border-radius: 0.7em;
+  box-shadow: 0px 0px 4px 4px black;
+}
+
+.container div {
+  padding: .5em .5em;
+  border-radius: 0.7em;
+}
+
+#nate {
+  background-color: lavender;
+}
+
+#ian {
+  background-color: lavenderblush;
+}
+
+
+.kid ul {
+  margin: -0.5em 0 0 0;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+#tab01 {
+  border-collapse: collapse;
+  width: 100%;
+}
+#tab01 tr:nth-child(odd){
+    background-color: #def;    
+}
+#tab01 th {
+    background-color: #6ae;
+    color: white;
+    padding: .3em;
+}
+#tab01 td {
+    padding: 8px;
+}
+#tab01 ul {
+  margin: 0 0 0 -1.2em;
+}
+.thboy {
+  width: 32%;
+}
+#thday {
+  width: 5%;
+}
+.daycolumn {
+  text-align: center;
+}
+#tab01 * {
+  -webkit-print-color-adjust: exact;
+}
+
+@media (min-width: 800px){
+  .container {
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(auto);
+  }
+}
+
+/* Solution below for uneven column heights using negative margins found at https://stackoverflow.com/questions/19695784/how-can-i-make-bootstrap-columns-all-the-same-height 
+.row [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.row {
+  overflow: hidden; 
+}
+*/
