@@ -1,4 +1,4 @@
-Folder  for storing Thanksgiving chore chart files
+# Folder  for storing Thanksgiving chore chart files
 
 I think the files I need to load to danschuring repository for this to work are
  - chores-for-print.html
