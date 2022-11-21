@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="dld.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <![endif]-->
+
+<title>Dan’s Legislative Dashboard</title>
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+  <h1>Dan’s Legislative Dashboard</h1>
+
+  <h2>Fiscal Note Response System</h2>
+
+  <p>Because the fiscal note response system is set to time out after about 10 minutes (as of 2022 General Session) without detected use, it will time out without intervention. The button below opens the fiscal note response system dashboard in another tab and reloads it every eight minutes to prevent the time-out. The code for this only reloads on the tab it opens, but this will prevent other fiscal note system pages that are open from timing out.
+  </p>
+
+  <button onclick="openNewTab()">
+    Open FNR Page
+  </button>
+
+  <h2>Working Document Links</h2>
+
+  <p>
+    <a href="https://docs.google.com/spreadsheets/d/18PAQOfmRlwAIP6blEJo82NZrkYlD9h-UBOi0daElpV4/edit?usp=sharing" target="_blank">Assignment Tracker</a><br />
+    <a href="https://docs.google.com/spreadsheets/d/1muz8nrDBjA5dJHxa6R3DrZpEii-5CISUF_zvd7HJDyc/edit?usp=sharing" target="_blank">Bill Tracker</a><br />
+    <a href="https://docs.google.com/spreadsheets/d/1qhVF6o60LPek9iJ3owoBilN6X-xr29LtmMQDFA4_otU/edit?usp=sharing" target="_blank">Fiscal Note Response List</a><br />
+    <a href="https://docs.google.com/spreadsheets/d/1p3irhYxdhdtyFuje_NUlMEjUEDtz4HB8dJm6Ptmysi0/edit?usp=sharing" target="_blank">Fiscal Note Response Template</a><br />
+  </p>
+
+  <h2>Outside Links</h2>
+  
+  <p>
+    <a href="https://stateofutah.sharepoint.com/:w:/s/MedicaidTeam/EXH-Tr7ISAVIjSFVkfNbJZcB9miRX6OsD4YY2h9wGZVf6w?rtime=AWt7IoG72kg" target="_blank">2022 Interim Unanswered Questions</a><br />
+    <a href="https://le.utah.gov/" target="_blank">Main Utah Legislative Page</a><br />
+    <a href="https://le.utah.gov/xcode/code.html" target="_blank">Utah Code</a><br />
+    <a href="https://le.utah.gov/committee/committee.jsp?year=2022&com=APPSOC" target="_blank">Social Services Appropriations Subcommittee, 2022</a><br />
+    <a href="https://le.utah.gov/committee/committee.jsp?year=2023&com=APPSOC" target="_blank">Social Services Appropriations Subcommittee, 2023</a><br />
+    <a href="https://docs.google.com/spreadsheets/d/1gnyRrU5-Nu3bhcQXB5U1W_xL1cAS51k7/edit#gid=46802399" target="_blank">Detailed Agenda 2023 General Session</a><br />
+
+<!--    <a href="" target="_blank"></a><br />
+    <a href="" target="_blank"></a><br />
+    <a href="" target="_blank"></a><br />
+    <a href="" target="_blank"></a><br />
+    <a href="" target="_blank"></a><br />
+    <a href="" target="_blank"></a><br /> -->
+  </p>
+
+  <h2>Fiscal Note Copy & Paste</h2>
+
+  <form id="fnrform" class="container" name="fnr-subject-line" action="" method="post"> <!-- onsubmit="fiscalNote(); return false" -->
+
+    <div id="inputdiv">
+      <label for="subject">Paste subjectline of fiscal note request email here:</label><br />
+      <input type="text" size="40" name="subject" id="subject" value="" required>
+
+      <label for="received">Received</label><br />
+      <input type="date" name="received" id="received" value="today()">
+    </div> <!-- /#inputdiv -->
+
+    <br />
+    
+    <div class="submit-reset">
+        <input type="submit">
+        <input id="fnrreset" type="reset">
+      <span style="padding-left:0.6em;">(Results will be displayed below.)</span>
+    </div> <!-- /.submit-reset -->
+    <br />
+  
+  </form><br />
+
+  <table id="table1">
+    <tr>
+      <th>E-mail subject line or request description</th>
+      <th>Sent By</th>
+      <th>Received</th>
+      <th>Due Date</th>
+      <th>Due Date Set By</th>
+    </tr>
+    <tr>
+      <td id="fnr-track-sub"></td>
+      <td id="fnr-track-from">today()</td>
+      <td id="fnr-track-rec"></td>
+     <td id="fnr-track-due"></td>
+      <td id="fnr-track-setby"></td>
+    </tr>
+  </table>
+
+    
+
+  <script src="dld.js"></script
+
+</body>
+</html>
+
