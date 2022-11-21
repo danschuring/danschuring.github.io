@@ -8,8 +8,6 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" type="text/css" href="dld.css">
-
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <![endif]-->
@@ -17,6 +15,22 @@
 <title>Dan’s Legislative Dashboard</title>
 
 <style>
+
+  #table1 {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table, td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #ffdddd;
+  }
 
 </style>
 
@@ -104,7 +118,42 @@
 
     
 
-  <script src="dld.js"></script
+<script>
+
+setInterval(refreshExistingTab, 480000);
+
+  let childWindow = "";
+  let newTabUrl="https://secure.utah.gov/ufn/";
+
+    function openNewTab(){
+        childWindow = window.open(newTabUrl);
+    }
+
+    function refreshExistingTab(){
+        childWindow.location.href=newTabUrl;
+    }
+
+
+document.getElementById("fnrform").addEventListener("submit", fiscalNote);
+
+function fiscalNote() {
+  const subject = document.getElementById("subject").value;
+  document.getElementById("fnr-track-sub").innerHTML = subject;
+  event.preventDefault(); //prevents default action of clicking submit button?
+}
+
+document.getElementById("fnrreset").addEventListener("click", resetStuff);
+
+function resetStuff() {
+  document.getElementById("subject").value = "";
+  document.getElementById("fnr-track-sub").innerHTML = "";
+  document.getElementById("fnr-track-from").innerHTML = "";
+  document.getElementById("fnr-track-rec").innerHTML = "";
+  document.getElementById("fnr-track-due").innerHTML = "";
+  document.getElementById("fnr-track-setby").innerHTML = "";
+}
+
+</script
 
 </body>
 </html>
