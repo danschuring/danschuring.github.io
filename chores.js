@@ -68,7 +68,6 @@ function daysFromBase() {
   let daysFromBase = (Math.floor((calendarDate - baseDate) / msPerDay));
   natesChores(daysFromBase);
   iansChores(daysFromBase);
-  ashsChores(daysFromBase);
   return daysFromBase;
 }
 
