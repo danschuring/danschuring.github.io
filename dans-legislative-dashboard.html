@@ -65,6 +65,7 @@
   <h2>Outside Links</h2>
   
   <p>
+    <a id="openFNRS" title="The fiscal note response system is set to time out after about 10 minutes (as of 2023 General Session) without detected use. This link opens the system dashboard in another tab and reloads it every eight minutes to prevent the time-out. The code for this only reloads on the tab it opens, but this will prevent other fiscal note system pages that are open from timing out." href="https://secure.utah.gov/ufn/" target="_blank">Fiscal Note Response System</a>
     <a href="https://docs.google.com/spreadsheets/d/1_LwHvegLLFaevibOBF6EVZyZAia7ikfcPlJyfdBMlx8/edit?usp=sharing" target="_blank">Governor's Office Bill Tracker</a><br />
     <a href="https://stateofutah.sharepoint.com/:w:/s/MedicaidTeam/EXH-Tr7ISAVIjSFVkfNbJZcB9miRX6OsD4YY2h9wGZVf6w?rtime=AWt7IoG72kg" target="_blank">2022 Interim Unanswered Questions</a><br />
     <a href="https://le.utah.gov/" target="_blank">Main Utah Legislative Page</a><br />
@@ -81,45 +82,6 @@
     <a href="" target="_blank"></a><br /> -->
   </p>
 
-  <h2>Fiscal Note Copy & Paste</h2>
-
-  <form id="fnrform" class="container" name="fnr-subject-line" action="" method="post"> <!-- onsubmit="fiscalNote(); return false" -->
-
-    <div id="inputdiv">
-      <label for="subject">Paste subjectline of fiscal note request email here:</label><br />
-      <input type="text" size="40" name="subject" id="subject" value="" required>
-
-      <label for="received">Received</label><br />
-      <input type="date" name="received" id="received" value="today()">
-    </div> <!-- /#inputdiv -->
-
-    <br />
-    
-    <div class="submit-reset">
-        <input type="submit">
-        <input id="fnrreset" type="reset">
-      <span style="padding-left:0.6em;">(Results will be displayed below.)</span>
-    </div> <!-- /.submit-reset -->
-    <br />
-  
-  </form><br />
-
-  <table id="table1">
-    <tr>
-      <th>E-mail subject line or request description</th>
-      <th>Sent By</th>
-      <th>Received</th>
-      <th>Due Date</th>
-      <th>Due Date Set By</th>
-    </tr>
-    <tr>
-      <td id="fnr-track-sub"></td>
-      <td id="fnr-track-from">today()</td>
-      <td id="fnr-track-rec"></td>
-     <td id="fnr-track-due"></td>
-      <td id="fnr-track-setby"></td>
-    </tr>
-  </table>
 
     
 
@@ -138,27 +100,9 @@ setInterval(refreshExistingTab, 480000);
         childWindow.location.href=newTabUrl;
     }
 
+  document.getElementById("openFNRS").addEventListener("click", openNewTab);
 
-document.getElementById("fnrform").addEventListener("submit", fiscalNote);
-
-function fiscalNote() {
-  const subject = document.getElementById("subject").value;
-  document.getElementById("fnr-track-sub").innerHTML = subject;
-  event.preventDefault(); //prevents default action of clicking submit button?
-}
-
-document.getElementById("fnrreset").addEventListener("click", resetStuff);
-
-function resetStuff() {
-  document.getElementById("subject").value = "";
-  document.getElementById("fnr-track-sub").innerHTML = "";
-  document.getElementById("fnr-track-from").innerHTML = "";
-  document.getElementById("fnr-track-rec").innerHTML = "";
-  document.getElementById("fnr-track-due").innerHTML = "";
-  document.getElementById("fnr-track-setby").innerHTML = "";
-}
-
-</script
+  </script>
 
 </body>
 </html>
