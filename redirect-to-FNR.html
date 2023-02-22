@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <![endif]-->
+
+<title>Title Here</title>
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+  <h1>Redirect to the LFA Fiscal Note Response System</h1>
+  <p>This page should automatically redirect to the LFA's fiscal note response page.<br />
+    If it doesn't, please click <a id="openFNRS" href="https://secure.utah.gov/ufn/" target="_blank">this link</a>
+  </p>
+
+</body>
+
+  <script>
+    function redirectFunc() {
+      window.location.replace("https://secure.utah.gov/ufn");
+    }
+
+    setTimeout("redirectFunc()", 2000);
+    
+    document.getElementById("openFNRS").addEventListener("click", openNewTab);
+
+
+    setInterval(refreshExistingTab, 480000);
+
+    let childWindow = "";
+    let newTabUrl="https://secure.utah.gov/ufn/";
+
+    function openNewTab(){
+      childWindow = window.open(newTabUrl);
+    }
+
+    function refreshExistingTab(){
+      childWindow.location.href=newTabUrl;
+    }
+  </script>
+  
+</html>
