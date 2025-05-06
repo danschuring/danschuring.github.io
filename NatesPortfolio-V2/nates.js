@@ -65,7 +65,7 @@ function toggleMenu() {
   console.log(x.className);
   if (x.className === "menu") {
     x.className += " responsive";
-	document.getElementById("ddpointer").innerHTML = "&#x25B4;";
+	document.getElementById("ddpointer").innerHTML = "&#9652;";
   } else {
     x.className = "menu";
 	document.getElementById("ddpointer").innerHTML = "&#9662;";
